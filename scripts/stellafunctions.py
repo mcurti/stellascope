@@ -28,15 +28,16 @@ def get_RA_Dec(txt):
     Is = raw.find("/")
     Ie = raw.find("°")
     dd = float(raw[(Is+1):(Ie-1)])
+    sign = raw[Is+1]
     
     Is = raw.find("°")
     Ie = raw.find("'")
-    mm = float(raw[(Is+1):(Ie)])/60
+    mm = float(sign+raw[(Is+1):(Ie)])/60
     
     
     Is = raw.find("'")
     Ie = raw.find("\"")
-    ss = float(raw[(Is+1):(Ie)])/(60*60)
+    ss = float(sign+raw[(Is+1):(Ie)])/(60*60)
     
     ra = h+(m + s/60)/60
     dec = dd+mm+ss

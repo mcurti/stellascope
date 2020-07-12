@@ -14,7 +14,7 @@ url_main = "http://localhost:8090/api/"
 
 url_status = "main/status"
 url_find   = "objects/find?str=moon"
-url_info   = "objects/info?name=Capella"
+url_info   = "objects/info?name=Saturn"
     
 response= requests.get(url_main + url_info)
 ra, dec = s.get_RA_Dec(response.text)

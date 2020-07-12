@@ -6,12 +6,24 @@ Created on Mon Jul 13 00:00:00 2020
 """
 
 def get_RA_Dec(txt):
-    i = txt.find("HA/Dec")
-    raw = txt[(i+11):(i+37)]
+    i = txt.find("RA/Dec (on date)")
+    j = txt.find("HA/Dec")
+    raw = txt[(i+17):(j-4)]
+        
     
-    h = int(raw[0:2])
-    m = int(raw[3:5])
-    s = float(raw[6:11])
+    Is = raw.find("    ")
+    Ie = raw.find("h")
+    h = float(raw[(Is+4):Ie])
+    
+    
+    Is = raw.find("h")
+    Ie = raw.find("m")
+    m = float(raw[(Is+1):Ie])
+    
+    
+    Is = raw.find("m")
+    Ie = raw.find("s")
+    s = float(raw[(Is+1):Ie])
     
     Is = raw.find("/")
     Ie = raw.find("°")

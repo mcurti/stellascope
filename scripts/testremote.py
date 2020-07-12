@@ -6,6 +6,7 @@ Created on Tue Jul  7 22:58:03 2020
 """
 import stellafunctions as s
 import requests
+import win32com.client      #needed to load COM objects
 
 
 
@@ -19,4 +20,8 @@ response= requests.get(url_main + url_info)
 ra, dec = s.get_RA_Dec(response.text)
 
 print(ra, dec)
+
+
+#ASCOM.Simulator.Telescope
+# tel = win32com.client.Dispatch("ASCOM.MeadeGeneric.Telescope")
 

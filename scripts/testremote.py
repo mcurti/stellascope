@@ -5,21 +5,14 @@ Created on Tue Jul  7 22:58:03 2020
 @author: curti
 """
 import stellafunctions as s
-import requests
 import win32com.client      #needed to load COM objects
 
 
 
-url_main = "http://localhost:8090/api/"
-
-url_status = "main/status"
-url_find   = "objects/find?str=moon"
-url_info   = "objects/info?name=Saturn"
-    
-response= requests.get(url_main + url_info)
-ra, dec = s.get_RA_Dec(response.text)
-
-print(ra, dec)
+tel = win32com.client.Dispatch("ASCOM.Simulator.Telescope")
+tel.connected = True
+tel.tracking = True
+s.go_to(tel, "Moon")
 
 
 #ASCOM.Simulator.Telescope

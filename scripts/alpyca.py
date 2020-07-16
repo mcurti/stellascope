@@ -9,4 +9,4 @@ import win32com.client      #needed to load COM objects
 
 #Identyfikator sterownika
 #ASCOM.Simulator.Telescope
-tel = win32com.client.Dispatch("ASCOM.MeadeGeneric.Telescope")
+tel = win32com.client.Dispatch("ASCOM.Simulator.Telescope")

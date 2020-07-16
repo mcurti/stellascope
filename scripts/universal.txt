@@ -1,0 +1,6 @@
+01:58:18.265 identifier                Message 
+01:58:18.304 Serial                    Starting initialisation
+01:58:18.313 Console Message    >>>>   Made a TraceLogger
+01:58:18.322 Console Message    >>>>   ASCOM.Utilities.TraceLogger
+01:58:18.327 Console Message    >>>>   True
+01:58:18.335 Console Message    >>>>   opening Serial Log File universal.txt

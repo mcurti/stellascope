@@ -4,6 +4,7 @@ Created on Mon Jul 13 00:00:00 2020
 
 @author: curti
 """
+import requests
 
 def get_RA_Dec(txt):
     i = txt.find("RA/Dec (on date)")
@@ -42,3 +43,14 @@ def get_RA_Dec(txt):
     ra = h+(m + s/60)/60
     dec = dd+mm+ss
     return ra, dec
+
+def go_to(tel, body):
+    url_main = "http://localhost:8090/api/"
+    url_info   = "objects/info?name=%s" % body
+    
+    response= requests.get(url_main + url_info)
+    
+    ra, dec = get_RA_Dec(response.text)
+    
+    tel.slewtocoordinates(ra, dec)
+    
